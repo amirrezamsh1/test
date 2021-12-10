@@ -237,7 +237,6 @@ def zip_function(update,context) :
         zip_id=update.message.document.file_id
         zip_file=context.bot.get_file(zip_id)
         filename=title('asg3','zip')
-        #filename='asg3_'+str(dt.datetime.now()).split('.')[1]+'.zip'
         zip_file.download('asg3//'+filename)
         cur.execute('UPDATE Data SET assignment3=? WHERE user_id=?',(filename,str(update.message.chat.id)))
         cur.execute('UPDATE Data SET level=8 WHERE user_id=?',(str(update.message.chat.id),))
