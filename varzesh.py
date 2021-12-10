@@ -231,6 +231,7 @@ def present_files(update,context) :
         context.bot.send_message(chat_id=int(userid),text=text)
 
 def zip_function(update,context) :
+    #one comment line was deleted.
     cur.execute('SELECT level FROM Data WHERE user_id=?',(str(update.message.chat.id),))
     level=cur.fetchone()[0]
     if level==7 :
