@@ -251,7 +251,7 @@ def question_function(update,context) :
     assignment=cur.fetchone()[0]
     if assignment==None :
         text="مهلت ارسال این تکلیف به پایان رسیده"
-        context.bot.send_message(chat_id=int(userid),text=text,reply_markup=inline_markup)
+        context.bot.send_message(chat_id=int(userid),text=text)
     else :
         text="شما این تکلیف را ارسال کرده اید و امکان تغییر آن نیست"
         context.bot.send_message(chat_id=int(userid),text=text)
