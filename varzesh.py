@@ -141,10 +141,6 @@ def pdf_function(update,context) :
         pdf_id=update.message.document.file_id
         pdf_file=context.bot.get_file(pdf_id)
         filename=title('asg1','pdf')
-        #test='asg1//'+filename
-        #a1=t.split()[0].replace('-','')
-        #a2=t.split()[1].split('.')[0].replace(':','')
-        #filename='asg1_'+str(dt.datetime.now()).split('.')[1]+'.pdf'
         pdf_file.download('asg1//'+filename)
         cur.execute('UPDATE Data SET assignment1=? WHERE user_id=?',(filename,update.message.chat.id))
         cur.execute('UPDATE Data SET level=4 WHERE user_id=?',(update.message.chat.id,))
@@ -155,7 +151,6 @@ def pdf_function(update,context) :
         pdf_id=update.message.document.file_id
         pdf_file=context.bot.get_file(pdf_id)
         filename=title('asg2','pdf')
-        #filename='asg2_'+str(dt.datetime.now()).split('.')[1]+'.pdf'
         pdf_file.download('asg2//'+filename)
         cur.execute('UPDATE Data SET assignment2=? WHERE user_id=?',(filename,update.message.chat.id))
         cur.execute('UPDATE Data SET level=10 WHERE user_id=?',(update.message.chat.id,))
@@ -199,7 +194,6 @@ def date_function(update,context) :
         cur.execute('SELECT subject FROM Data WHERE user_id=?',(userid,))
         subject=cur.fetchone()[0]
         information='\n'.join([subject,date])
-        #text="موضوع و تاریخ ارایه شما با موفقیت ثبت شد"
         text='با موفقیت ثبت شد، موضوع و تاریخ ارایه شما به صورت زیر است'+'\n'+information
         query.edit_message_text(text=text)
 
