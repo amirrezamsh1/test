@@ -250,10 +250,7 @@ def question_function(update,context) :
     cur.execute('SELECT assignment2 FROM Data WHERE user_id=?',(userid,))
     assignment=cur.fetchone()[0]
     if assignment==None :
-        #text="تمام فایل های مربوط به ارایه را در یک فایل زیپ ذخیره کنید و آن را ارسال کنید، دقت کنید فایل ارسالی حتما باید به صورت زیپ باشد در غیر این صورت بات آن را دریافت نمیکند"
-        text="چهار سوال تستی به همراه جواب به صورت تایپ شده از پی دی اف های داخل گروه طرح نمایید و در قالب فایل پی دی اف ارسال نمایید، دقت شود که فایل دست نویس قابل قبول نیست"
-        keyboard=[[InlineKeyboardButton('ارسال تکلیف',callback_data='asg2_'+userid+'.send'),InlineKeyboardButton('بعدا ارسال میکنم',callback_data='asg2_'+userid+'.cancel')]]
-        inline_markup=InlineKeyboardMarkup(keyboard)
+        text="مهلت ارسال این تکلیف به پایان رسیده"
         context.bot.send_message(chat_id=int(userid),text=text,reply_markup=inline_markup)
     else :
         text="شما این تکلیف را ارسال کرده اید و امکان تغییر آن نیست"
